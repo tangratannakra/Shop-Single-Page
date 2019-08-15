@@ -71,8 +71,9 @@ header {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #ded3aa;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 576px) {
@@ -268,7 +269,6 @@ article {
 }
 
 .gallery {
-  background-color: #555555;
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
@@ -276,8 +276,14 @@ article {
 
 @media (min-width: 768px) {
   .gallery .image-holder {
-    height: 70vh;
     overflow: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  .gallery .image-holder {
+    height: 65vh;
+    margin-bottom: 10px;
   }
 }
 
@@ -298,18 +304,30 @@ article {
   }
 }
 
+.thumbs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.thumb-holder {
+  background-color: #ded3aa;
+  height: 100px;
+  width: 24%;
+}
+
 .product-info {
-  padding-left: 15px;
+  padding: 0px 15px;
 }
 
 @media (min-width: 768px) {
   .product-info {
     width: 70%;
+    padding: 0 0 0 30px;
   }
-}
-
-.breadcrumbs {
-  padding: 18px 0px;
 }
 
 @media (max-width: 479px) {
@@ -378,10 +396,6 @@ article {
   }
 }
 
-.product-description {
-  padding: 18px 0px;
-}
-
 @media (max-width: 479px) {
   .product-description {
     -webkit-box-ordinal-group: 6;
@@ -447,10 +461,49 @@ article {
   width: 33%;
 }
 
-form select {
+form select, form input {
   padding: 5px;
   border: 1px solid #e1e1e1;
   color: #555555;
+}
+
+form input {
+  width: 20px;
+}
+
+.quantity {
+  position: relative;
+}
+
+.quantity button {
+  padding: 0px;
+}
+
+.quantity .plus, .quantity .minus {
+  position: absolute;
+  padding: 0px;
+  width: 30px;
+  height: 15px;
+  border: 1px solid #ded3aa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quantity .plus {
+  top: 38px;
+  left: 19px;
+}
+
+.quantity .minus {
+  top: 52px;
+  left: 19px;
 }
 
 .buy {

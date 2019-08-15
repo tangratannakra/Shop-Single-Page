@@ -93,8 +93,9 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding-bottom:30px;
+    padding-bottom:15px;
     border-bottom:1px solid color(gold);
+    margin-bottom:10px;
 }
 
 .language-switcher {
@@ -250,14 +251,16 @@ article {
 }
 
 .gallery {
-    background-color: color(grey);
     object-fit: cover;
     overflow:hidden;
 
     .image-holder {
         @include respond-above(md){
-            height: 70vh;
             overflow: hidden;
+        }
+        @include respond-above(lg){
+            height:65vh;
+            margin-bottom:10px;
         }
     }
 
@@ -276,15 +279,26 @@ article {
     }
 }
 
+.thumbs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumb-holder{
+    background-color: color(gold);
+    height:100px;
+    width:24%;
+}
+
 .product-info {
-    padding-left:15px;
+    padding:0px 15px;
     @include respond-above(md){
         width:70%;
+        padding: 0 0 0 30px;
     }
 }
 
 .breadcrumbs {
-    padding: $padding;
     @include respond-below(xs){
         width: 100%;
         order: 1;
@@ -297,7 +311,7 @@ article {
 }
 
 .product-header{
-    padding:$padding;
+    padding: $padding;
     @include respond-below(xs){
         order:3;
     }
@@ -335,7 +349,6 @@ article {
 }
 
 .product-description {
-    padding: $padding;
     @include respond-below(xs){
         order:5;
     }
@@ -384,11 +397,48 @@ article {
 }
 
 form {
-    select {
+    select, input {
         padding:5px;
         border: 1px solid color(light-grey);
         color: color(grey);
     }
+
+    input {
+        width:20px;
+    }
+}
+
+.quantity {
+    position: relative;
+
+    button {
+        padding:0px;
+    }
+
+    .plus, .minus {
+        position: absolute;
+        padding:0px;
+        width:30px;
+        height: 15px;
+        border: 1px solid color(gold);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .plus {
+        top:38px;
+        left:19px;
+    }
+
+    .minus{
+        top:52px;
+        left:19px;
+    }
+
+    
+
 }
 
 .buy{
