@@ -255,6 +255,7 @@ article {
     overflow:hidden;
 
     .image-holder {
+        position: relative;
         @include respond-above(md){
             overflow: hidden;
         }
@@ -277,6 +278,23 @@ article {
         height:90vw;
         //order: 2;
     }
+}
+
+nav.img-nav {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-size: 40px;
+    color:white;
+
+
+    i:hover {
+        color: black;
+        cursor: pointer;
+    }
+
 }
 
 .thumbs {
