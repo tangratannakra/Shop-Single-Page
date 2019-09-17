@@ -10,16 +10,17 @@ const currentImage = document.querySelector('.current');
 const imgs = document.querySelectorAll('.thumbs img');
 
 imgs.forEach(img => img.addEventListener('click', (e) => currentImage.src = e.target.src))
-currentImage.src = imgs[0].src;
+//currentImage.src = imgs[0].src;
         
 let i = imgs.length;
+//console.log(i);
 
 nextBtn.onclick = () => {
     i = (i < imgs.length-1)?(i = i+1):(i=0);
-    currentImage.src = imgs[i].src;
-         }
+    currentImage.src = imgs[i].src;  
+    }
        
-    prevBtn.onclick = () => {
-        i = (i < imgs.length + 1 && i > 0 )?(i =i-1):(i=imgs.length);
-        currentImage.src = imgs[i].src;
-         }
+prevBtn.onclick = () => {
+    i = (i < imgs.length && i > 0 )?(i = i-1):(i=imgs.length-1);
+    currentImage.src = imgs[i].src;
+    }     
