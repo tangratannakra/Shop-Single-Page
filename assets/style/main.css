@@ -338,8 +338,15 @@ nav.img-nav i:hover {
 
 .thumb-holder {
   background-color: #ded3aa;
-  height: 100px;
+  height: 180px;
   width: 24%;
+  overflow: hidden;
+}
+
+@media (max-width: 1199px) {
+  .thumb-holder {
+    height: 150px;
+  }
 }
 
 .product-info {

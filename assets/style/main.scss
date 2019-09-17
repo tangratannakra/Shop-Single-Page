@@ -304,8 +304,13 @@ nav.img-nav {
 
 .thumb-holder{
     background-color: color(gold);
-    height:150px;
+    height:180px;
     width:24%;
+    overflow: hidden;
+
+    @include respond-below(xl){
+        height:150px;
+    }
 }
 
 .product-info {
