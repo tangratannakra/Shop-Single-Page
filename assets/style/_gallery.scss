@@ -1,0 +1,71 @@
+.gallery {
+    object-fit: cover;
+    overflow: hidden;
+
+    .image-holder {
+        position: relative;
+
+        @include respond-above(md) {
+            overflow: hidden;
+        }
+
+        @include respond-above(lg) {
+            height: 65vh;
+            margin-bottom: 10px;
+        }
+    }
+
+    @include respond-above(md) {
+        width: 100%;
+    }
+
+    @include respond-below(md) {
+        width: 100%;
+        height: 90vw;
+        //order: 2;
+    }
+}
+
+.image-holder {
+    img {
+        width: 100%;
+
+    }
+}
+
+nav.img-nav {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    font-size: 40px;
+    color: white;
+
+
+    i:hover {
+        color: black;
+        cursor: pointer;
+    }
+}
+
+.thumbs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumb-holder {
+    background-color: color(gold);
+    height: 180px;
+    width: 24%;
+    overflow: hidden;
+
+    @include respond-below(xl) {
+        height: 150px;
+    }
+
+    img {
+        height: 100%;
+        transform: scale(1.2);
+    }
+}

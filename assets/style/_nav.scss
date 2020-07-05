@@ -1,0 +1,72 @@
+nav {
+    position: relative;
+
+    @include respond-above(sm) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    @include respond-below(sm) {
+        order: 4;
+        width: 33%;
+        position: relative;
+        text-align: right;
+    }
+
+    a {
+        color: black;
+        text-transform: uppercase;
+        //font-size: 0.8rem;
+        font-weight: 300;
+
+        &:hover {
+            font-weight: 700;
+        }
+    }
+
+    li {
+        display: inline;
+        padding: 0 10px;
+
+        @include respond-below(sm) {
+            display: block;
+            padding: 20px 10px;
+            text-align: center;
+        }
+    }
+
+    .menu {
+        @include respond-below(sm) {
+            display: none;
+            order: 4;
+            width: 33%;
+            position: relative;
+            text-align: right;
+        }
+    }
+
+    .menu-active {
+        display: block;
+        position: absolute;
+        background-color: color(gold);
+        width: 100vw;
+        padding: 30px 20px 30px 20px;
+        top: 50px;
+        right: -10px;
+        border-bottom: 3px solid color(gold);
+    }
+}
+
+.burger {
+    display: none;
+
+    @include respond-below(sm) {
+        display: inline;
+
+        i {
+            padding-right: 15px;
+        }
+    }
+
+}

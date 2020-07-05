@@ -1,0 +1,18 @@
+.language-switcher {
+    @include respond-above(sm) {
+        position: absolute;
+        top: 30px;
+        left: 10px;
+    }
+
+    @include respond-below(sm) {
+        position: relative;
+        order: 2;
+        width: 33%;
+    }
+
+    select {
+        border: none;
+        font-size: 0.7rem;
+    }
+}

@@ -1,45 +1,43 @@
 @import 'mixins';
 
-    //fonts variables 
-    $roboto: 'Roboto', sans-serif;
-    $poppins: 'Poppins', sans-serif;
-    
-    // font-weights
-    $light: 300;
-    $regular: 400;
-    $bold: 700;
-    $black: 900;
+//fonts variables 
+$roboto: 'Roboto',
+sans-serif;
+$poppins: 'Poppins',
+sans-serif;
 
-    //paddings
-    $padding:18px 0px;
+// font-weights
+$light: 300;
+$regular: 400;
+$bold: 700;
+$black: 900;
+
+//paddings
+$padding:18px 0px;
 
 
-$colors: (
-    grey: #555555,
+$colors: (grey: #555555,
     light-grey: #e1e1e1,
     blue: #68899a,
-    gold: #ded3aa
-);
+    gold: #ded3aa);
 
 //displaying color variable
-@function color($color-name){
+@function color($color-name) {
     @if map-has-key($colors, $color-name) {
-     @return map-get($colors, $color-name);
+        @return map-get($colors, $color-name);
     }
 }
 
-$breakpoints: (
-    xs: 480px,
+$breakpoints: (xs: 480px,
     sm: 576px,
     md: 768px,
     lg: 992px,
-    xl: 1200px
-);
+    xl: 1200px);
 
 
 * {
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -47,8 +45,8 @@ body {
     font-size: 14px;
     font-family: $roboto;
     line-height: 1.45rem;
-    color:color(grey);
-    
+    color: color(grey);
+
 }
 
 a {
@@ -58,11 +56,11 @@ a {
 }
 
 a.black {
-    color:#000000;
+    color: #000000;
     text-decoration: underline;
     text-transform: uppercase;
     font-weight: 700;
-    font-size:0.7rem;
+    font-size: 0.7rem;
 }
 
 p {
@@ -70,517 +68,122 @@ p {
 }
 
 h1 {
-    color:black;
-    font-size:1.7rem;
+    color: black;
+    font-size: 1.7rem;
     padding: $padding;
 }
 
 .wrapper {
-    display:flex;
+    display: flex;
 
-    @include respond-below(sm){
+    @include respond-below(sm) {
         padding: 0 10px;
         flex-direction: column;
     }
-    @include respond-above(xl){
+
+    @include respond-above(xl) {
         width: 1133px;
-        margin:0 auto;
+        margin: 0 auto;
     }
 }
 
-header { 
-    display:flex;
+header {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding-bottom:15px;
-    border-bottom:1px solid color(gold);
-    margin-bottom:10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid color(gold);
+    margin-bottom: 10px;
 }
 
-.language-switcher {
-    @include respond-above(sm){
-        position: absolute;
-        top:30px;
-        left:10px;
-    }
-
-    @include respond-below(sm){
-        position: relative;
-        order: 2;
-        width:33%;
-    }
-    
-    select {
-        border:none;
-        font-size:0.7rem;
-    } 
-}
 
 #brand {
-    color:black;
+    color: black;
     font-family: $poppins;
     font-weight: $black;
     text-transform: uppercase;
     font-size: 2.3rem;
     text-align: center;
     padding: 30px 0px;
-    @include respond-below(sm){
-        width:100%;
+
+    @include respond-below(sm) {
+        width: 100%;
         order: 1;
     }
 }
 
+@import '_language';
+
 button.cart {
-    border:2px solid color(gold);
+    border: 2px solid color(gold);
     background-color: white;
-    padding:20px 30px;
+    padding: 20px 30px;
     text-align: center;
     text-transform: uppercase;
-    font-size:0.7rem;
+    font-size: 0.7rem;
 
-    @include respond-above(sm){
+    @include respond-above(sm) {
         position: absolute;
-        top:15px;
-        right:10px;
+        top: 15px;
+        right: 10px;
     }
-    
-    @include respond-below(sm){
+
+    @include respond-below(sm) {
         position: relative;
         order: 3;
-        width:33%;
-        padding:10px 20px;
+        width: 33%;
+        padding: 10px 20px;
     }
 }
 
-nav {
-    position: relative;
-    @include respond-above(sm){
-        display: flex;
-        justify-content: center;
-        width:100%;
-        }
+@import '_nav';
+// Additional styling for the stars
+@import '_rating';
 
-    @include respond-below(sm){
-        order: 4;
-        width:33%;
-        position: relative;
-        text-align: right;
-    }
 
-    a {
-        color:black;
-        text-transform: uppercase;
-        //font-size: 0.8rem;
-        font-weight: 300;
-        
-        &:hover {
-            font-weight: 700;
-        }
-    }
-    
-    li {
-        display: inline;
-        padding: 0 10px;
-        @include respond-below(sm){
-            display: block;
-            padding: 20px 10px;
-            text-align: center;
-        }
-    }
-
-    .menu {
-        @include respond-below(sm){
-            display:none;
-            order: 4;
-            width:33%;
-            position: relative;
-            text-align: right;
-        }
-    }     
-    
-    .menu-active {
-        display:block;
-        position: absolute;
-        background-color:color(gold);
-        width: 100vw;
-        padding: 30px 20px 30px 20px;
-        top: 50px;
-        right: -10px;
-        border-bottom:3px solid color(gold);
-    }
-}
-
-.burger {
-    display: none;
-    @include respond-below(sm){
-        display: inline;
-        i {
-            padding-right:15px;
-        }
-    }
-    
-}
-
-.fav-search{
+.fav-search {
     position: absolute;
-    bottom:0px;
+    bottom: 0px;
     right: 20px;
 
     i:first-child {
         padding-right: 10px;
     }
-    i:last-child{
+
+    i:last-child {
         padding-left: 10px;
         border-left: 1px dotted color(grey);
     }
 
-    @include respond-below(sm){
-        display:none;
+    @include respond-below(sm) {
+        display: none;
     }
 }
 
 
 //------------
 article {
-    display:flex;
-
-    @include respond-below(md){
-        flex-direction: column; 
-    }
-}
-
-.gallery {
-    object-fit: cover;
-    overflow:hidden;
-
-    .image-holder {
-        position: relative;
-        @include respond-above(md){
-            overflow: hidden;
-        }
-        @include respond-above(lg){
-            height:65vh;
-            margin-bottom:10px;
-        }
-    }
-
-    img {
-        width: 100%;
-    }
-
-    @include respond-above(md){
-        width: 100%;
-    }
-
-    @include respond-below(md){
-        width:100%;
-        height:90vw;
-        //order: 2;
-    }
-}
-
-nav.img-nav {
-    position: absolute;
-    top: 50%;
     display: flex;
-    justify-content: space-between;
-    padding: 0px 20px;
-    font-size: 40px;
-    color:white;
 
+    width: 100%;
 
-    i:hover {
-        color: black;
-        cursor: pointer;
-    }
-
-}
-
-.thumbs {
-    display: flex;
-    justify-content: space-between;
-}
-
-.thumb-holder{
-    background-color: color(gold);
-    height:180px;
-    width:24%;
-    overflow: hidden;
-
-    @include respond-below(xl){
-        height:150px;
-    }
-}
-
-.product-info {
-    padding:0px 15px;
-    @include respond-above(md){
-        width:70%;
-        padding: 0 0 0 30px;
-    }
-}
-
-.breadcrumbs {
-    @include respond-below(xs){
-        width: 100%;
-        order: 1;
-    }
-
-    i { 
-        font-size:0.6rem;
-        padding-right:3px;
-    }
-}
-
-.product-header{
-    padding: $padding;
-    @include respond-below(xs){
-        order:3;
-    }
-
-    .reviews {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-}
-
-.price {
-    padding: $padding;
-    color:color(blue);
-    font-weight: 700;
-    font-size:1.5rem;
-}
-
-.product-meta{
-    color:black;
-    font-weight:700;
-    padding: $padding;
-
-    ul {
-        list-style: none;
-    }
-
-    span {
-        color:color(blue);
-    }
-
-    @include respond-below(xs){
-       order:4; 
-    }
-}
-
-.product-description {
-    @include respond-below(xs){
-        order:5;
-    }
-
-    ul {
-        list-style: none;
-
-        li {
-            position: relative;
-            padding-left:10px;
-
-            &:before {
-                content: '\2022';
-                position: absolute;
-                left: 0px;
-            }
-        }
-    }
-}
-.product-selection {
-    margin-top:30px;
-    
-    @include respond-below(xs){
-        order:6;
-    }
-
-    label {
-        color:black;
-        text-transform: uppercase;
-        font-weight: 700;
-        padding-bottom:15px;
-    }
-
-    .row {
-        padding: $padding;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .column {
-        display:flex;
+    @include respond-below(md) {
         flex-direction: column;
-        width: 33%;
     }
 }
 
-form {
-    select, input {
-        padding:5px;
-        border: 1px solid color(light-grey);
-        color: color(grey);
-    }
+@import '_gallery';
+@import '_product-info';
 
-    input {
-        width:20px;
-    }
-}
 
-.quantity {
-    position: relative;
-
-    button {
-        padding:0px;
-    }
-
-    .plus, .minus {
-        position: absolute;
-        padding:0px;
-        width:30px;
-        height: 15px;
-        border: 1px solid color(gold);
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        
-    }
-
-    .plus {
-        top:38px;
-        left:19px;
-    }
-
-    .minus{
-        top:52px;
-        left:19px;
-    }
-
-    
-
-}
-
-.buy{
-    margin-top: 30px;
-    @include respond-below(xs){
-        order:7;
-    }
-
-    button {
-        width:48%;
-        padding: 15px 0;
-        text-transform: uppercase;
-        font-size:0.7rem;
-    }
-
-    .add-cart {
-        border:1px solid color(gold);
-        background-color: color(gold);
-        
-    }
-
-    .wishlist {
-        border:1px solid color(light-grey);
-        background-color: white;
-    }
-}
-
-.social-links{
-    padding: $padding;
-    @include respond-below(xs){
-        order:8;
-    }
-}
 
 footer {
-    margin-top:60px;
+    margin-top: 60px;
     color: color(light-grey);
-    border-top:1px solid color(light-grey);
+    border-top: 1px solid color(light-grey);
     padding: $padding;
     text-align: center;
-    font-size:0.7rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
 }
-
-
-
-// Additional styling for the stars
-
-.rating{
-	--uiRatingSize: var(--ratingSize, 20px);
-    --uiRatingColor: var(--ratingColor, rgb(212, 212, 212));
-	--uiRatingColorActive: var(--ratingColorActive, #ded3aa);
-	
-	display: flex;
-    font-size: var(--uiRatingSize);
-	color: var(--uiRatingColor);
-    position: relative;
-}
-
-.rating__control{
-	position: absolute;
-	left: -9999px;
-}
-
-.rating__control:nth-of-type(1):focus ~ .rating__item:nth-of-type(1):before,
-.rating__control:nth-of-type(2):focus ~ .rating__item:nth-of-type(2):before,
-.rating__control:nth-of-type(3):focus ~ .rating__item:nth-of-type(3):before,
-.rating__control:nth-of-type(4):focus ~ .rating__item:nth-of-type(4):before,
-.rating__control:nth-of-type(5):focus ~ .rating__item:nth-of-type(5):before{
-  content: ""; 
-  position: absolute;
-  top: -.15em;
-  right: 0;
-  bottom: -.15em;
-  left: 0;
-  z-index: -1;
-}
-
-.rating__item{
-	-webkit-tap-highlight-color: transparent;
-  cursor: pointer;  
-  position: relative;
-}
-
-.rating__item{
-	padding-left: .25em;
-  padding-right: .25em;
-}
-
-.rating__star{
-	display: block;
-	width: 1em;
-	height: 1em;
-	fill: currentColor;
-}
-
-.rating__label{
-	position: absolute;
-	top: 0;
-	left: -9999px;
-}
-
-.rating:hover,
-.rating__control:nth-of-type(1):checked ~ .rating__item:nth-of-type(1),
-.rating__control:nth-of-type(2):checked ~ .rating__item:nth-of-type(-n+2),
-.rating__control:nth-of-type(3):checked ~ .rating__item:nth-of-type(-n+3),
-.rating__control:nth-of-type(4):checked ~ .rating__item:nth-of-type(-n+4),
-.rating__control:nth-of-type(5):checked ~ .rating__item:nth-of-type(-n+5){
-	color: var(--uiRatingColorActive);
-}
-
-.rating__item:hover ~ .rating__item{
-  color: var(--uiRatingColor);
-}
-
-.rating{
-    --ratingSize: 15px;
-    --ratingColor: #e5e5e5;
-	--ratingColorActive: #ded3aa;
-}
-
-
